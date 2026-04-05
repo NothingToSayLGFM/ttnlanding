@@ -1,0 +1,99 @@
+---
+const steps = [
+  {
+    step: '01',
+    title: 'Upload Your File',
+    description: 'Drop your TXT or CSV file with tracking numbers. Supports any format.',
+    icon: 'upload',
+  },
+  {
+    step: '02',
+    title: 'Automatic Processing',
+    description: 'Our system detects duplicates, validates TTNs, and sorts them into registries.',
+    icon: 'cpu',
+  },
+  {
+    step: '03',
+    title: 'Sync & Done',
+    description: 'Registries are created or updated via Nova Poshta API automatically.',
+    icon: 'send',
+  },
+];
+---
+
+<section class="py-24 lg:py-32 bg-secondary/30 relative overflow-hidden">
+  <!-- Background Pattern -->
+  <div class="absolute inset-0 grid-lines opacity-30"></div>
+
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
+    <!-- Header -->
+    <div data-animate class="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
+      <span class="inline-block text-xs font-medium uppercase tracking-widest text-accent mb-4">The Solution</span>
+      <h2 class="text-3xl lg:text-4xl font-bold text-foreground leading-tight mb-4">
+        From chaos to clarity in{' '}
+        <span class="text-primary">three simple steps</span>
+      </h2>
+      <p class="text-lg text-muted-foreground">
+        Upload, process, done. No manual work, no errors, no wasted time.
+      </p>
+    </div>
+
+    <!-- Steps -->
+    <div class="grid lg:grid-cols-3 gap-8 lg:gap-6 mb-16 lg:mb-20">
+      {steps.map((step, index) => (
+        <div
+          data-animate
+          class="relative"
+          style={`transition-delay: ${index * 150}ms`}
+        >
+          <!-- Connector Line -->
+          {index < steps.length - 1 && (
+            <div class="hidden lg:block absolute top-12 left-full w-full h-px bg-border z-0">
+              <svg class="absolute -right-3 -top-2.5 w-5 h-5 text-border" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </div>
+          )}
+
+          <div class="relative bg-card border border-border rounded-2xl p-8 h-full shadow-sm hover:shadow-md transition-shadow">
+            <!-- Step Number -->
+            <span class="absolute top-6 right-6 font-mono text-5xl font-bold text-border/50">{step.step}</span>
+
+            <!-- Icon -->
+            <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
+              {step.icon === 'upload' && (
+                <svg class="w-7 h-7 text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
+              )}
+              {step.icon === 'cpu' && (
+                <svg class="w-7 h-7 text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>
+              )}
+              {step.icon === 'send' && (
+                <svg class="w-7 h-7 text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+              )}
+            </div>
+
+            <h3 class="text-xl font-semibold text-foreground mb-3">{step.title}</h3>
+            <p class="text-muted-foreground">{step.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Result Image -->
+    <div data-animate class="relative max-w-4xl mx-auto">
+      <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+        <img
+          src="/images/solution-placeholder.svg"
+          alt="Organized shipping manifests representing automated results"
+          class="w-full aspect-[4/3] object-cover"
+          width="800"
+          height="600"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-foreground/10 to-transparent"></div>
+      </div>
+
+      <!-- Floating Success Badge -->
+      <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-accent text-accent-foreground px-6 py-3 rounded-full shadow-lg">
+        <p class="text-sm font-semibold">✓ Ready for shipment</p>
+      </div>
+    </div>
+  </div>
+</section>

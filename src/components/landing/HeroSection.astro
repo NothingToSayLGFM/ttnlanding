@@ -1,0 +1,101 @@
+---
+import TTNFeed from '../islands/TTNFeed.vue';
+
+const features = ['Duplicate Detection', 'Auto-Distribution', 'API Sync'];
+---
+
+<section class="relative min-h-screen pt-20 lg:pt-0 overflow-hidden">
+  <!-- Background Grid Lines -->
+  <div class="absolute inset-0 grid-lines opacity-50"></div>
+
+
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="min-h-screen flex items-center">
+      <div class="grid lg:grid-cols-5 gap-12 lg:gap-16 items-center w-full py-16 lg:py-0">
+
+        <!-- Left Content - 60% -->
+        <div class="lg:col-span-3 space-y-8">
+          <!-- Badge -->
+          <span
+            class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 animate-fade-in"
+            style="animation-delay: 0ms; animation-fill-mode: both;"
+          >
+            <span class="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></span>
+            <span class="text-xs font-medium tracking-wide uppercase text-primary">Nova Poshta Automation</span>
+          </span>
+
+          <!-- Headline -->
+          <h1
+            class="font-inter font-bold text-foreground leading-tight animate-fade-in"
+            style="font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.05; animation-delay: 100ms; animation-fill-mode: both;"
+          >
+            Automate your{' '}
+            <span class="text-primary">Nova Poshta</span>{' '}
+            workflow
+          </h1>
+
+          <!-- Subheadline -->
+          <p
+            class="text-lg lg:text-xl text-muted-foreground max-w-xl leading-relaxed animate-fade-in"
+            style="animation-delay: 200ms; animation-fill-mode: both;"
+          >
+            Upload your tracking numbers, and let our system detect duplicates,
+            distribute them into registries, and sync with Nova Poshta API—automatically.
+          </p>
+
+          <!-- Features List -->
+          <div
+            class="flex flex-wrap gap-4 animate-fade-in"
+            style="animation-delay: 300ms; animation-fill-mode: both;"
+          >
+            {features.map((feature) => (
+              <div class="flex items-center gap-2 text-sm text-foreground">
+                <svg class="w-4 h-4 text-accent" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                <span>{feature}</span>
+              </div>
+            ))}
+          </div>
+
+          <!-- CTAs -->
+          <div
+            class="flex flex-wrap gap-4 pt-4 animate-fade-in"
+            style="animation-delay: 400ms; animation-fill-mode: both;"
+          >
+            <a
+              href="/app/register"
+              class="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-6 rounded-lg font-medium transition-colors"
+            >
+              Start Free Trial
+              <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+            <a
+              href="#demo"
+              class="inline-flex items-center gap-2 border border-border text-foreground hover:bg-secondary h-12 px-6 rounded-lg font-medium transition-colors"
+            >
+              <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+              Watch Demo
+            </a>
+          </div>
+
+          <!-- Trust Badge -->
+          <p
+            class="text-sm text-muted-foreground pt-4 animate-fade-in"
+            style="animation-delay: 500ms; animation-fill-mode: both;"
+          >
+            Trusted by <span class="text-foreground font-medium">500+</span> e-commerce businesses
+          </p>
+        </div>
+
+        <!-- Right Content - 40% Live TTN Feed -->
+        <div
+          class="lg:col-span-2 animate-slide-in-right"
+          style="animation-delay: 300ms; animation-fill-mode: both;"
+        >
+          <TTNFeed client:visible />
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</section>

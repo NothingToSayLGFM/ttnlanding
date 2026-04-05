@@ -1,0 +1,144 @@
+---
+const plans = [
+  {
+    name: 'Starter',
+    description: 'For small e-commerce businesses',
+    price: '₴499',
+    period: '/month',
+    capacity: { label: 'TTNs per month', value: 5000, max: 50000 },
+    features: [
+      'File upload (TXT/CSV)',
+      'Duplicate detection',
+      'Registry distribution',
+      'Email support',
+    ],
+    cta: 'Start Free Trial',
+    highlighted: false,
+  },
+  {
+    name: 'Professional',
+    description: 'For growing businesses',
+    price: '₴1,499',
+    period: '/month',
+    capacity: { label: 'TTNs per month', value: 25000, max: 50000 },
+    features: [
+      'Everything in Starter',
+      'Nova Poshta API integration',
+      'Auto-sync registries',
+      'Priority support',
+      'Custom rules engine',
+    ],
+    cta: 'Start Free Trial',
+    highlighted: true,
+  },
+  {
+    name: 'Enterprise',
+    description: 'For large operations',
+    price: 'Custom',
+    period: '',
+    capacity: { label: 'TTNs per month', value: 50000, max: 50000 },
+    features: [
+      'Everything in Professional',
+      'Unlimited TTNs',
+      'Dedicated account manager',
+      'Custom integrations',
+      'SLA guarantee',
+      'On-premise option',
+    ],
+    cta: 'Contact Sales',
+    highlighted: false,
+  },
+];
+---
+
+<section id="pricing" class="py-24 lg:py-32 bg-secondary/30 relative">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <!-- Header -->
+    <div data-animate class="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
+      <span class="inline-block text-xs font-medium uppercase tracking-widest text-primary mb-4">Pricing</span>
+      <h2 class="text-3xl lg:text-4xl font-bold text-foreground leading-tight mb-4">
+        Simple, transparent pricing
+      </h2>
+      <p class="text-lg text-muted-foreground">
+        Choose the plan that fits your volume. All plans include a 14-day free trial.
+      </p>
+    </div>
+
+    <!-- Pricing Cards -->
+    <div class="grid lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
+      {plans.map((plan, index) => (
+        <div
+          data-animate
+          class={`relative bg-card rounded-3xl p-8 ${
+            plan.highlighted
+              ? 'border-2 border-primary shadow-xl animate-pulse-glow'
+              : 'border border-border shadow-sm'
+          }`}
+          style={`transition-delay: ${index * 100}ms`}
+        >
+          <!-- Plan Header -->
+          <div class="mb-8">
+            <h3 class="text-xl font-semibold text-foreground mb-2">{plan.name}</h3>
+            <p class="text-sm text-muted-foreground">{plan.description}</p>
+          </div>
+
+          <!-- Price -->
+          <div class="mb-8">
+            <div class="flex items-baseline gap-1">
+              <span class="font-mono text-4xl lg:text-5xl font-bold text-foreground">{plan.price}</span>
+              {plan.period && <span class="text-muted-foreground">{plan.period}</span>}
+            </div>
+          </div>
+
+          <!-- Capacity Bar -->
+          <div class="mb-8">
+            <div class="flex justify-between text-sm mb-2">
+              <span class="text-muted-foreground">{plan.capacity.label}</span>
+              <span class="font-mono font-medium text-foreground">
+                {plan.capacity.value === plan.capacity.max && plan.name === 'Enterprise'
+                  ? 'Unlimited'
+                  : plan.capacity.value.toLocaleString()}
+              </span>
+            </div>
+            <div class="h-2 bg-secondary rounded-full overflow-hidden">
+              <div
+                class={`h-full rounded-full ${plan.highlighted ? 'bg-primary' : 'bg-muted-foreground/30'}`}
+                style={`width: ${(plan.capacity.value / plan.capacity.max) * 100}%`}
+              ></div>
+            </div>
+          </div>
+
+          <!-- Features -->
+          <ul class="space-y-3 mb-8">
+            {plan.features.map((feature) => (
+              <li class="flex items-start gap-3">
+                <svg
+                  class={`w-5 h-5 flex-shrink-0 mt-0.5 ${plan.highlighted ? 'text-primary' : 'text-accent'}`}
+                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                ><path d="M20 6 9 17l-5-5"/></svg>
+                <span class="text-sm text-foreground">{feature}</span>
+              </li>
+            ))}
+          </ul>
+
+          <!-- CTA -->
+          <a
+            href="/app"
+            class={`flex items-center justify-center w-full h-12 rounded-lg font-medium transition-colors gap-2 ${
+              plan.highlighted
+                ? 'bg-primary hover:bg-primary/90 text-primary-foreground'
+                : 'bg-secondary hover:bg-secondary/80 text-foreground'
+            }`}
+          >
+            {plan.cta}
+            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      ))}
+    </div>
+
+    <p data-animate class="text-center text-sm text-muted-foreground mt-12">
+      14-day free trial • No credit card required • Cancel anytime
+    </p>
+  </div>
+</section>

@@ -1,0 +1,102 @@
+---
+const benefits = [
+  {
+    metric: '3+ hours',
+    label: 'saved daily',
+    description: 'Automate repetitive tasks and focus on what matters.',
+    icon: 'clock',
+  },
+  {
+    metric: '99.9%',
+    label: 'accuracy',
+    description: 'Eliminate human errors with intelligent validation.',
+    icon: 'target',
+  },
+  {
+    metric: '10x',
+    label: 'faster processing',
+    description: 'Process thousands of TTNs in seconds, not hours.',
+    icon: 'trending-up',
+  },
+  {
+    metric: '500+',
+    label: 'businesses',
+    description: 'Trusted by e-commerce teams across the country.',
+    icon: 'users',
+  },
+];
+---
+
+<section class="py-24 lg:py-32 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <!-- Header -->
+    <div data-animate class="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
+      <span class="inline-block text-xs font-medium uppercase tracking-widest text-accent mb-4">Benefits</span>
+      <h2 class="text-3xl lg:text-4xl font-bold text-foreground leading-tight mb-4">
+        Results that speak for themselves
+      </h2>
+      <p class="text-lg text-muted-foreground">
+        Real impact on real businesses. See why teams choose TTNFlow.
+      </p>
+    </div>
+
+    <!-- Benefits Grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+      {benefits.map((benefit, index) => (
+        <div
+          data-animate
+          class="text-center"
+          style={`transition-delay: ${index * 100}ms`}
+        >
+          <div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
+            {benefit.icon === 'clock' && (
+              <svg class="w-8 h-8 text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            )}
+            {benefit.icon === 'target' && (
+              <svg class="w-8 h-8 text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            )}
+            {benefit.icon === 'trending-up' && (
+              <svg class="w-8 h-8 text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+            )}
+            {benefit.icon === 'users' && (
+              <svg class="w-8 h-8 text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            )}
+          </div>
+          <div class="space-y-2">
+            <span class="font-mono text-4xl lg:text-5xl font-bold text-foreground">{benefit.metric}</span>
+            <p class="text-sm font-medium uppercase tracking-wider text-primary">{benefit.label}</p>
+            <p class="text-muted-foreground text-sm pt-2">{benefit.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Testimonial -->
+    <div data-animate class="mt-20 lg:mt-24 max-w-4xl mx-auto">
+      <div class="relative bg-card border border-border rounded-3xl p-8 lg:p-12 shadow-lg">
+        <svg
+          class="absolute top-8 left-8 w-12 h-12 text-primary/20"
+          fill="currentColor"
+          viewBox="0 0 32 32"
+        >
+          <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z"/>
+        </svg>
+        <blockquote class="relative z-10">
+          <p class="text-xl lg:text-2xl text-foreground leading-relaxed mb-6">
+            "TTNFlow transformed our warehouse operations. What used to take our team 4 hours
+            now takes 15 minutes. The duplicate detection alone has saved us countless headaches."
+          </p>
+          <footer class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full bg-secondary flex items-center justify-center">
+              <span class="text-lg font-semibold text-foreground">OK</span>
+            </div>
+            <div>
+              <p class="font-semibold text-foreground">Oleksandr K.</p>
+              <p class="text-sm text-muted-foreground">Operations Manager, ShopMax</p>
+            </div>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>

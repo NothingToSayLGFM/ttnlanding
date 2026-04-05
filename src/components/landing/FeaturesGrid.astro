@@ -1,0 +1,118 @@
+---
+const features = [
+  {
+    title: 'File Upload',
+    description: 'Support for TXT and CSV files. Drag & drop or browse. Handles thousands of TTNs.',
+    icon: 'file-up',
+    highlight: false,
+    code: null,
+  },
+  {
+    title: 'Duplicate Detection',
+    description: 'Instantly identifies duplicates within your file and across existing registries.',
+    icon: 'copy',
+    highlight: true,
+    code: null,
+  },
+  {
+    title: 'Registry Distribution',
+    description: 'Automatically distributes TTNs into registries based on your rules.',
+    icon: 'layers',
+    highlight: false,
+    code: null,
+  },
+  {
+    title: 'API Integration',
+    description: 'Direct connection to Nova Poshta API. Create and update registries automatically.',
+    icon: 'plug',
+    highlight: false,
+    code: `{
+  "status": "success",
+  "registry_id": "R-2024-0847",
+  "ttns_added": 156,
+  "sync_time": "1.2s"
+}`,
+  },
+  {
+    title: 'Data Validation',
+    description: 'Validates TTN format and checks against Nova Poshta database.',
+    icon: 'shield',
+    highlight: false,
+    code: null,
+  },
+  {
+    title: 'Instant Processing',
+    description: 'Process thousands of tracking numbers in seconds, not hours.',
+    icon: 'zap',
+    highlight: false,
+    code: null,
+  },
+];
+---
+
+<section id="features" class="py-24 lg:py-32 relative">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <!-- Header -->
+    <div data-animate class="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
+      <span class="inline-block text-xs font-medium uppercase tracking-widest text-primary mb-4">Features</span>
+      <h2 class="text-3xl lg:text-4xl font-bold text-foreground leading-tight mb-4">
+        Everything you need for{' '}
+        <span class="text-primary">shipment automation</span>
+      </h2>
+      <p class="text-lg text-muted-foreground">
+        Powerful features designed for logistics teams who value efficiency.
+      </p>
+    </div>
+
+    <!-- Bento Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+      {features.map((feature, index) => (
+        <div
+          data-animate
+          class={`relative bg-card border border-border rounded-2xl p-6 lg:p-8 hover:shadow-lg transition-all duration-300 group overflow-hidden ${
+            feature.highlight ? 'md:col-span-2 lg:col-span-1 ring-2 ring-primary/20' : ''
+          } ${feature.code ? 'lg:row-span-2' : ''}`}
+          style={`transition-delay: ${index * 80}ms`}
+        >
+          <!-- Icon -->
+          <div class={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 ${
+            feature.highlight ? 'bg-primary text-primary-foreground' : 'bg-secondary text-foreground'
+          }`}>
+            {feature.icon === 'file-up' && (
+              <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M12 12v6"/><path d="m15 15-3-3-3 3"/></svg>
+            )}
+            {feature.icon === 'copy' && (
+              <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+            )}
+            {feature.icon === 'layers' && (
+              <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg>
+            )}
+            {feature.icon === 'plug' && (
+              <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></svg>
+            )}
+            {feature.icon === 'shield' && (
+              <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+            )}
+            {feature.icon === 'zap' && (
+              <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
+            )}
+          </div>
+
+          <!-- Content -->
+          <h3 class="text-lg font-semibold text-foreground mb-2">{feature.title}</h3>
+          <p class="text-muted-foreground text-sm leading-relaxed">{feature.description}</p>
+
+          <!-- Code Snippet -->
+          {feature.code && (
+            <div class="mt-6 bg-foreground rounded-xl p-4 overflow-hidden">
+              <pre class="font-mono text-xs text-background/90 overflow-x-auto"><code>{feature.code}</code></pre>
+            </div>
+          )}
+
+          <!-- Hover Effect -->
+          <div class="absolute inset-0 rounded-2xl bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
