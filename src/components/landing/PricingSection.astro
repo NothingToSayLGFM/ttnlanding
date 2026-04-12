@@ -1,51 +1,51 @@
 ---
 const plans = [
   {
-    name: 'Starter',
-    description: 'For small e-commerce businesses',
+    name: 'Стартовий',
+    description: 'Для малого інтернет-бізнесу',
     price: '₴499',
-    period: '/month',
-    capacity: { label: 'TTNs per month', value: 5000, max: 50000 },
+    period: '/міс',
+    capacity: { label: 'ТТН на місяць', value: 5000, max: 50000 },
     features: [
-      'File upload (TXT/CSV)',
-      'Duplicate detection',
-      'Registry distribution',
-      'Email support',
+      'Завантаження файлів (TXT/CSV)',
+      'Виявлення дублікатів',
+      'Розподіл по реєстрах',
+      'Email підтримка',
     ],
-    cta: 'Start Free Trial',
+    cta: 'Спробувати безкоштовно',
     highlighted: false,
   },
   {
-    name: 'Professional',
-    description: 'For growing businesses',
-    price: '₴1,499',
-    period: '/month',
-    capacity: { label: 'TTNs per month', value: 25000, max: 50000 },
+    name: 'Професійний',
+    description: 'Для бізнесу, що росте',
+    price: '₴1 499',
+    period: '/міс',
+    capacity: { label: 'ТТН на місяць', value: 25000, max: 50000 },
     features: [
-      'Everything in Starter',
-      'Nova Poshta API integration',
-      'Auto-sync registries',
-      'Priority support',
-      'Custom rules engine',
+      'Все зі Стартового',
+      'Інтеграція з API Нової Пошти',
+      'Авто-синхронізація реєстрів',
+      'Пріоритетна підтримка',
+      'Гнучкий механізм правил',
     ],
-    cta: 'Start Free Trial',
+    cta: 'Спробувати безкоштовно',
     highlighted: true,
   },
   {
-    name: 'Enterprise',
-    description: 'For large operations',
-    price: 'Custom',
+    name: 'Корпоративний',
+    description: 'Для великих операцій',
+    price: 'Індивідуально',
     period: '',
-    capacity: { label: 'TTNs per month', value: 50000, max: 50000 },
+    capacity: { label: 'ТТН на місяць', value: 50000, max: 50000 },
     features: [
-      'Everything in Professional',
-      'Unlimited TTNs',
-      'Dedicated account manager',
-      'Custom integrations',
-      'SLA guarantee',
-      'On-premise option',
+      'Все з Професійного',
+      'Необмежені ТТН',
+      'Персональний менеджер',
+      'Індивідуальні інтеграції',
+      'Гарантія SLA',
+      'Хостинг на вашому сервері',
     ],
-    cta: 'Contact Sales',
+    cta: 'Зв\'язатись з нами',
     highlighted: false,
   },
 ];
@@ -55,12 +55,12 @@ const plans = [
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
     <!-- Header -->
     <div data-animate class="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
-      <span class="inline-block text-xs font-medium uppercase tracking-widest text-primary mb-4">Pricing</span>
+      <span class="inline-block text-xs font-medium uppercase tracking-widest text-primary mb-4">Ціни</span>
       <h2 class="text-3xl lg:text-4xl font-bold text-foreground leading-tight mb-4">
-        Simple, transparent pricing
+        Прозорі ціни без сюрпризів
       </h2>
       <p class="text-lg text-muted-foreground">
-        Choose the plan that fits your volume. All plans include a 14-day free trial.
+        Оберіть план відповідно до вашого обсягу. Всі плани включають 14-денний безкоштовний тріал.
       </p>
     </div>
 
@@ -95,9 +95,9 @@ const plans = [
             <div class="flex justify-between text-sm mb-2">
               <span class="text-muted-foreground">{plan.capacity.label}</span>
               <span class="font-mono font-medium text-foreground">
-                {plan.capacity.value === plan.capacity.max && plan.name === 'Enterprise'
-                  ? 'Unlimited'
-                  : plan.capacity.value.toLocaleString()}
+                {plan.capacity.value === plan.capacity.max && plan.name === 'Корпоративний'
+                  ? 'Необмежено'
+                  : plan.capacity.value.toLocaleString('uk-UA')}
               </span>
             </div>
             <div class="h-2 bg-secondary rounded-full overflow-hidden">
@@ -138,7 +138,7 @@ const plans = [
     </div>
 
     <p data-animate class="text-center text-sm text-muted-foreground mt-12">
-      14-day free trial • No credit card required • Cancel anytime
+      14 днів безкоштовно • Без кредитної картки • Скасування будь-коли
     </p>
   </div>
 </section>

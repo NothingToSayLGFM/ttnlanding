@@ -2,20 +2,20 @@
 const steps = [
   {
     step: '01',
-    title: 'Upload Your File',
-    description: 'Drop your TXT or CSV file with tracking numbers. Supports any format.',
+    title: 'Завантажте файл',
+    description: 'Перетягніть TXT або CSV файл з ТТН. Підтримує будь-який формат.',
     icon: 'upload',
   },
   {
     step: '02',
-    title: 'Automatic Processing',
-    description: 'Our system detects duplicates, validates TTNs, and sorts them into registries.',
+    title: 'Автоматична обробка',
+    description: 'Система виявляє дублікати, перевіряє ТТН та сортує їх у реєстри.',
     icon: 'cpu',
   },
   {
     step: '03',
-    title: 'Sync & Done',
-    description: 'Registries are created or updated via Nova Poshta API automatically.',
+    title: 'Синхронізація та готово',
+    description: 'Реєстри створюються або оновлюються через API Нової Пошти автоматично.',
     icon: 'send',
   },
 ];
@@ -28,13 +28,13 @@ const steps = [
   <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
     <!-- Header -->
     <div data-animate class="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
-      <span class="inline-block text-xs font-medium uppercase tracking-widest text-accent mb-4">The Solution</span>
+      <span class="inline-block text-xs font-medium uppercase tracking-widest text-accent mb-4">Рішення</span>
       <h2 class="text-3xl lg:text-4xl font-bold text-foreground leading-tight mb-4">
-        From chaos to clarity in{' '}
-        <span class="text-primary">three simple steps</span>
+        Від хаосу до порядку за{' '}
+        <span class="text-primary">три прості кроки</span>
       </h2>
       <p class="text-lg text-muted-foreground">
-        Upload, process, done. No manual work, no errors, no wasted time.
+        Завантажте, обробіть, готово. Без ручної роботи, без помилок, без втраченого часу.
       </p>
     </div>
 
@@ -82,7 +82,7 @@ const steps = [
       <div class="relative rounded-2xl overflow-hidden shadow-2xl">
         <img
           src="/images/solution-placeholder.svg"
-          alt="Organized shipping manifests representing automated results"
+          alt="Організовані реєстри як результат автоматизації"
           class="w-full aspect-[4/3] object-cover"
           width="800"
           height="600"
@@ -92,7 +92,7 @@ const steps = [
 
       <!-- Floating Success Badge -->
       <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-accent text-accent-foreground px-6 py-3 rounded-full shadow-lg">
-        <p class="text-sm font-semibold">✓ Ready for shipment</p>
+        <p class="text-sm font-semibold">✓ Готово до відправлення</p>
       </div>
     </div>
   </div>
