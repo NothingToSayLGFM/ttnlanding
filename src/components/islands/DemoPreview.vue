@@ -199,8 +199,4 @@ const handleReset = () => {
 
 
 
-
-
-
-
 Continue the scene in ultra-realistic cinematic style. A dark green container with Audi logo falls from the cargo ship into the ocean, creating a massive splash and powerful waves. Slow motion moment at water impact, huge water explosion and droplets hitting the camera lens. After the impact, the container briefly goes underwater, then floats back up to the surface and stays floating on the ocean, rocking on the waves. The container remains visible above water at the end of the scene. First-person POV from a helmet camera on a jet ski behind the ship, dynamic motion, realistic physics, sunset lighting.

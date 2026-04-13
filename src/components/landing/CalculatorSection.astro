@@ -1,0 +1,136 @@
+---
+const TELEGRAM_URL = 'https://t.me/your_telegram';
+const PRICE_PER_TTN = 1;
+const presets = [100, 500, 1000, 5000];
+---
+
+<section id="pricing" class="py-24 lg:py-32 bg-secondary/30 relative">
+  <div class="max-w-5xl mx-auto px-6 lg:px-8">
+    <!-- Header -->
+    <div data-animate class="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
+      <span class="inline-block text-xs font-medium uppercase tracking-widest text-primary mb-4">Ціни</span>
+      <h2 class="text-3xl lg:text-4xl font-bold text-foreground leading-tight mb-4">
+        Просто та прозоро
+      </h2>
+      <p class="text-lg text-muted-foreground">
+        1 ТТН = ₴1. Перші 100 сканувань — безкоштовно при реєстрації.
+      </p>
+    </div>
+
+    <!-- Calculator Card -->
+    <div data-animate class="max-w-xl mx-auto bg-card border border-border rounded-3xl p-8 shadow-xl">
+
+      <!-- Free start banner -->
+      <div class="flex items-center gap-3 bg-primary/10 border border-primary/20 rounded-xl px-4 py-3 mb-8">
+        <svg class="w-5 h-5 text-primary shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <p class="text-sm text-foreground">
+          Кожен новий акаунт отримує <strong class="text-primary">100 безкоштовних сканувань</strong>
+        </p>
+      </div>
+
+      <!-- Preset buttons -->
+      <p class="text-sm text-muted-foreground mb-3">Оберіть кількість ТТН</p>
+      <div class="grid grid-cols-4 gap-2 mb-4" id="calc-presets">
+        {presets.map((preset) => (
+          <button
+            data-preset={preset}
+            class="preset-btn py-2.5 rounded-xl text-sm font-medium border border-border bg-secondary hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors"
+          >
+            {preset.toLocaleString('uk-UA')}
+          </button>
+        ))}
+      </div>
+
+      <!-- Custom input -->
+      <div class="mb-6">
+        <label class="text-xs text-muted-foreground block mb-1.5">Або введіть власну кількість</label>
+        <input
+          id="calc-input"
+          type="number"
+          min="1"
+          value="100"
+          class="w-full bg-background border border-border rounded-xl px-4 py-2.5 text-foreground text-sm focus:outline-none focus:border-primary transition-colors"
+          placeholder="Кількість ТТН"
+        />
+      </div>
+
+      <!-- Price summary -->
+      <div class="bg-secondary/60 rounded-xl p-4 mb-6">
+        <div class="flex justify-between items-center mb-2">
+          <span class="text-sm text-muted-foreground">Кількість ТТН</span>
+          <span id="calc-qty" class="text-sm text-foreground font-mono">100</span>
+        </div>
+        <div class="flex justify-between items-center mb-3">
+          <span class="text-sm text-muted-foreground">Ціна за ТТН</span>
+          <span class="text-sm text-foreground font-mono">₴{PRICE_PER_TTN}</span>
+        </div>
+        <div class="border-t border-border mb-3"></div>
+        <div class="flex justify-between items-center">
+          <span class="text-sm font-semibold text-foreground">Разом</span>
+          <span id="calc-total" class="text-2xl font-bold text-foreground">₴100</span>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <a
+        id="calc-cta"
+        href={`${TELEGRAM_URL}?text=${encodeURIComponent('Хочу придбати 100 сканувань (₴100)')}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center justify-center gap-2 w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium py-3 rounded-xl transition-colors"
+      >
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.26 13.617l-2.95-.924c-.64-.203-.652-.64.136-.954l11.52-4.44c.534-.194 1.003.131.928.922z"/>
+        </svg>
+        Придбати через Telegram
+      </a>
+      <p class="text-xs text-muted-foreground text-center mt-3">
+        Напишіть нам — підтвердимо оплату та поповнимо баланс протягом кількох хвилин
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+  const TELEGRAM_URL = 'https://t.me/your_telegram';
+  const PRICE_PER_TTN = 1;
+
+  const input = document.getElementById('calc-input') as HTMLInputElement;
+  const qtyEl = document.getElementById('calc-qty')!;
+  const totalEl = document.getElementById('calc-total')!;
+  const ctaEl = document.getElementById('calc-cta') as HTMLAnchorElement;
+  const presetBtns = document.querySelectorAll('.preset-btn');
+
+  function update(qty: number) {
+    const valid = Math.max(1, Math.round(qty) || 1);
+    const total = valid * PRICE_PER_TTN;
+    qtyEl.textContent = valid.toLocaleString('uk-UA');
+    totalEl.textContent = `₴${total.toLocaleString('uk-UA')}`;
+    ctaEl.href = `${TELEGRAM_URL}?text=${encodeURIComponent(`Хочу придбати ${valid} сканувань (₴${total})`)}`;
+
+    // Update preset active state
+    presetBtns.forEach((btn) => {
+      const preset = parseInt((btn as HTMLElement).dataset.preset ?? '0');
+      if (preset === valid) {
+        btn.classList.add('bg-primary', 'text-primary-foreground', 'border-primary');
+        btn.classList.remove('bg-secondary');
+      } else {
+        btn.classList.remove('bg-primary', 'text-primary-foreground', 'border-primary');
+        btn.classList.add('bg-secondary');
+      }
+    });
+  }
+
+  input.addEventListener('input', () => update(parseInt(input.value)));
+
+  presetBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const preset = parseInt((btn as HTMLElement).dataset.preset ?? '100');
+      input.value = String(preset);
+      update(preset);
+    });
+  });
+
+  // Init with default
+  update(100);
+</script>

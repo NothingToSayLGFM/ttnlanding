@@ -21,7 +21,7 @@ const features = ['Виявлення дублікатів', 'Авторозпо
             style="animation-delay: 0ms; animation-fill-mode: both;"
           >
             <span class="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></span>
-            <span class="text-xs font-medium tracking-wide uppercase text-primary">Автоматизація Нової Пошти</span>
+            <span class="text-xs font-medium tracking-wide uppercase text-primary">Автоматизація API Нової Пошти</span>
           </span>
 
           <!-- Headline -->
@@ -30,7 +30,7 @@ const features = ['Виявлення дублікатів', 'Авторозпо
             style="font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.05; animation-delay: 100ms; animation-fill-mode: both;"
           >
             Автоматизуйте роботу з{' '}
-            <span class="text-primary">Новою Поштою</span>
+            <span class="text-primary">API Новою Поштою</span>
           </h1>
 
           <!-- Subheadline -->
@@ -90,7 +90,7 @@ const features = ['Виявлення дублікатів', 'Авторозпо
           class="lg:col-span-2 animate-slide-in-right"
           style="animation-delay: 300ms; animation-fill-mode: both;"
         >
-          <TTNFeed client:visible />
+          <TTNFeed client:only="vue" />
         </div>
 
       </div>
