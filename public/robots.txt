@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ttnflow.com/sitemap-index.xml
+Sitemap: https://ttnflow.com/sitemap.xml
