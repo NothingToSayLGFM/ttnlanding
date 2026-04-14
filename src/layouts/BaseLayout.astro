@@ -7,9 +7,11 @@ interface Props {
 }
 
 const {
-  title = 'TTNFlow — Nova Poshta Automation',
-  description = 'Automate your Nova Poshta shipment processing. Detect duplicates, distribute into registries, and sync with Nova Poshta API automatically.',
+  title = 'TTNFlow — Автоматизація API Нової Пошти',
+  description = 'Автоматизуй обробку відправлень по API Нової Пошти. Знаходь дублікати, розподіляй у реєстри та синхронізуй з API Нової Пошти.',
 } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, 'https://ttnflow.com');
 ---
 
 <!doctype html>
@@ -22,6 +24,8 @@ const {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <link rel="canonical" href={canonicalURL} />
     <title>{title}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>

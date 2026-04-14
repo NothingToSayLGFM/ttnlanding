@@ -9,13 +9,13 @@
       <!-- Header -->
       <div class="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
         <span class="inline-block text-xs font-medium uppercase tracking-widest text-primary mb-4">
-          Interactive Demo
+          Інтерактивне демо
         </span>
         <h2 class="text-3xl lg:text-4xl font-bold text-background leading-tight mb-4">
-          See the magic in action
+          Побач магію в дії
         </h2>
         <p class="text-lg text-background/60">
-          Watch how TTNFlow transforms raw tracking numbers into organized registries.
+          Дивись як TTNFlow перетворює список ТТН на організовані реєстри.
         </p>
       </div>
 
@@ -37,7 +37,7 @@
               @click="handleReset"
               class="inline-flex items-center justify-center h-8 px-3 text-sm font-medium border border-border rounded-md bg-transparent hover:bg-secondary transition-colors text-foreground"
             >
-              Reset Demo
+              Скинути
             </button>
             <button
               v-else
@@ -46,7 +46,7 @@
               class="inline-flex items-center justify-center h-8 px-3 text-sm font-medium bg-primary hover:bg-primary/90 text-primary-foreground rounded-md transition-colors gap-2 disabled:opacity-60"
             >
               <Sparkles class="w-4 h-4" :class="{ 'animate-pulse': isProcessing }" />
-              {{ isProcessing ? 'Processing...' : 'Process File' }}
+              {{ isProcessing ? 'Обробка...' : 'Обробити файл' }}
             </button>
           </div>
         </div>
@@ -57,7 +57,7 @@
           <div class="p-6 border-r border-border">
             <div class="flex items-center gap-2 mb-4">
               <FileText class="w-4 h-4 text-muted-foreground" />
-              <span class="text-xs font-medium uppercase tracking-wider text-muted-foreground">Input File</span>
+              <span class="text-xs font-medium uppercase tracking-wider text-muted-foreground">Вхідний файл</span>
             </div>
             <div class="bg-secondary/50 rounded-xl p-4 h-80 overflow-auto">
               <pre class="font-mono text-sm text-foreground whitespace-pre-wrap">{{ sampleInput }}</pre>
@@ -69,11 +69,11 @@
             <div class="flex items-center justify-between mb-4">
               <div class="flex items-center gap-2">
                 <div class="w-2 h-2 rounded-full" :class="isProcessed ? 'bg-accent' : 'bg-muted-foreground'"></div>
-                <span class="text-xs font-medium uppercase tracking-wider text-muted-foreground">Analysis</span>
+                <span class="text-xs font-medium uppercase tracking-wider text-muted-foreground">Аналіз</span>
               </div>
               <div v-if="isProcessed" class="flex gap-3 text-xs">
-                <span class="text-accent">{{ uniqueCount }} unique</span>
-                <span class="text-destructive">{{ duplicateCount }} duplicates</span>
+                <span class="text-accent">{{ uniqueCount }} унікальних</span>
+                <span class="text-destructive">{{ duplicateCount }} дублікатів</span>
               </div>
             </div>
             <div class="space-y-2 h-80 overflow-auto">
@@ -89,11 +89,11 @@
                   <div class="flex items-center gap-2">
                     <template v-if="result.status === 'duplicate'">
                       <AlertCircle class="w-3.5 h-3.5 text-destructive" />
-                      <span class="text-xs text-destructive">Duplicate</span>
+                      <span class="text-xs text-destructive">Дублікат</span>
                     </template>
                     <template v-else>
                       <CheckCircle2 class="w-3.5 h-3.5 text-accent" />
-                      <span class="text-xs text-accent">Unique</span>
+                      <span class="text-xs text-accent">Унікальний</span>
                     </template>
                   </div>
                 </div>
@@ -101,9 +101,9 @@
               <div v-else class="h-full flex items-center justify-center text-muted-foreground text-sm">
                 <div v-if="isProcessing" class="flex items-center gap-2">
                   <div class="w-4 h-4 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
-                  Analyzing...
+                  Аналізую...
                 </div>
-                <span v-else>Click "Process File" to analyze</span>
+                <span v-else>Натисни "Обробити файл" для аналізу</span>
               </div>
             </div>
           </div>
@@ -112,7 +112,7 @@
           <div class="p-6">
             <div class="flex items-center gap-2 mb-4">
               <ArrowRight class="w-4 h-4 text-muted-foreground" />
-              <span class="text-xs font-medium uppercase tracking-wider text-muted-foreground">Output Registries</span>
+              <span class="text-xs font-medium uppercase tracking-wider text-muted-foreground">Вихідні реєстри</span>
             </div>
             <div class="space-y-3 h-80 overflow-auto">
               <template v-if="isProcessed">
@@ -139,7 +139,7 @@
               </template>
               <div v-else class="h-full flex flex-col items-center justify-center text-muted-foreground text-sm gap-4">
                 <Upload class="w-12 h-12 text-border" />
-                <span>Registries will appear here</span>
+                <span>Реєстри з'являться тут</span>
               </div>
             </div>
           </div>
@@ -195,8 +195,3 @@ const handleReset = () => {
   isProcessed.value = false;
 };
 </script>
-
-
-
-
-Continue the scene in ultra-realistic cinematic style. A dark green container with Audi logo falls from the cargo ship into the ocean, creating a massive splash and powerful waves. Slow motion moment at water impact, huge water explosion and droplets hitting the camera lens. After the impact, the container briefly goes underwater, then floats back up to the surface and stays floating on the ocean, rocking on the waves. The container remains visible above water at the end of the scene. First-person POV from a helmet camera on a jet ski behind the ship, dynamic motion, realistic physics, sunset lighting.
